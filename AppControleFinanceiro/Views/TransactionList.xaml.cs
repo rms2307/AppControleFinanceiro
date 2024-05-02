@@ -12,4 +12,9 @@ public partial class TransactionList : ContentPage
         App.Current.MainPage = new TransactionAdd();
 
     }
+
+    private void OnButtonClicked_To_TransactionEdit(object sender, EventArgs e)
+    {
+        App.Current.MainPage = new TransactionEdit();
+    }
 }
