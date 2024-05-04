@@ -12,12 +12,16 @@
                     Grid.Row="0"
                     Grid.Column="0"
                     TextColor="White" />
-                <Label 
-                    Text="X" 
+                <Image 
                     HorizontalOptions="Center" 
                     Grid.Row="0" 
                     Grid.Column="1"
-                    TextColor="White" />
+                    Source="close.png"
+                    WidthRequest="17">
+                    <Image.GestureRecognizers>
+                        <TapGestureRecognizer Tapped="TapGestureRecognizer_Tapped"/>
+                    </Image.GestureRecognizers>
+                </Image>
             </Grid>
         </Border>
 
