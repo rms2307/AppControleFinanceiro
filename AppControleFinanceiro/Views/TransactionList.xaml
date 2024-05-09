@@ -2,12 +2,17 @@
 <ContentPage xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
              xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
              x:Class="AppControleFinanceiro.Views.TransactionList"
-             Title="TransactionList">
+             Title="Listagem"
+             NavigationPage.HasNavigationBar="False">
     <VerticalStackLayout>
-        <Label 
-            Text="TransactionList"
-            VerticalOptions="Center" 
-            HorizontalOptions="Center" />
+        <Grid Padding="15" ColumnDefinitions="50, *,Auto">
+            <Label FontSize="40" HorizontalOptions="Center" Text="$" VerticalOptions="Center"/>
+            <VerticalStackLayout Grid.Column="1">
+                <Label Text="Salário" />
+                <Label Text="20/20/2024" TextColor="#BABABA"/>
+            </VerticalStackLayout>
+            <Label Grid.Column="2" Text="R$ 3700,00" TextColor="{StaticResource Tertiary}" VerticalOptions="Center" />
+        </Grid>
 
         <Button Text="+" Clicked="OnButtonClicked_To_TransactionAdd"/>
         <Button Text="Editar" Clicked="OnButtonClicked_To_TransactionEdit"/>
