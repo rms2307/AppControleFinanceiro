@@ -1,15 +1,43 @@
 <?xml version="1.0" encoding="utf-8" ?>
-<ContentPage xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
-             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
-             x:Class="AppControleFinanceiro.Views.TransactionList"
-             Title="TransactionList">
+<ContentPage 
+    xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+    xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+    x:Class="AppControleFinanceiro.Views.TransactionList"
+    Title="TransactionList"
+    NavigationPage.HasNavigationBar="False">
     <VerticalStackLayout>
-        <Label 
-            Text="TransactionList"
-            VerticalOptions="Center" 
-            HorizontalOptions="Center" />
+        <Grid Padding="15" ColumnDefinitions="50, *, Auto">
+            <Label Text="S" VerticalOptions="Center" HorizontalOptions="Center" Background="White" FontSize="20" TextColor="{StaticResource Black}"/>
+            <VerticalStackLayout Grid.Column="1">
+                <Label Text="Salário" TextColor="{StaticResource Black}"/>
+                <Label Text="10/10/2022" TextColor="#BABABA"/>
+            </VerticalStackLayout>
+            <Label Text="R$ 3600,00" Grid.Column="2" TextColor="{StaticResource Tertiary}" VerticalOptions="Center"/>
+        </Grid>
 
-        <Button Text="+" Clicked="OnButtonClicked_To_TransactionAdd"/>
-        <Button Text="Editar" Clicked="OnButtonClicked_To_TransactionEdit"/>
+        <Border Margin="10" BackgroundColor="{StaticResource Black}" Stroke="Transparent" Padding="15" StrokeShape="RoundRectangle 30">
+            <Grid ColumnDefinitions="*, 80" RowDefinitions="Auto, Auto, 30, Auto, Auto">
+                <Label Text="Saldo" TextColor="#979797" FontSize="18"/>
+                <Label Text="R$ 2760,00" Grid.Row="1" FontSize="36"/>
+
+                <Button 
+                    Text="+" 
+                    Clicked="OnButtonClicked_To_TransactionAdd" 
+                    HorizontalOptions="Center" 
+                    Grid.Column="1" 
+                    Grid.RowSpan="2" 
+                    FontSize="48"
+                    WidthRequest="54"
+                    HeightRequest="54"/>
+
+                <Label Text="Receitas" Grid.Row="3" TextColor="#979797" FontSize="10"/>
+                <Label Text="R$ 3600,00" Grid.Row="4" FontSize="12"/>
+
+                <Label Text="Despesas" Grid.Column="1" Grid.Row="3" TextColor="#979797" FontSize="10"/>
+                <Label Text="R$ 840,00" Grid.Column="1" Grid.Row="4" FontSize="12"/>
+            </Grid>
+        </Border>
+
+        <Button Text="Editar" Clicked="OnButtonClicked_To_TransactionEdit" HorizontalOptions="Center"/>
     </VerticalStackLayout>
 </ContentPage>
