@@ -28,7 +28,9 @@
                     Grid.RowSpan="2" 
                     FontSize="48"
                     WidthRequest="54"
-                    HeightRequest="54"/>
+                    HeightRequest="54"
+                    Padding="0"
+                    CornerRadius="27"/>
 
                 <Label Text="Receitas" Grid.Row="3" TextColor="#979797" FontSize="10"/>
                 <Label Text="R$ 3600,00" Grid.Row="4" FontSize="12"/>
