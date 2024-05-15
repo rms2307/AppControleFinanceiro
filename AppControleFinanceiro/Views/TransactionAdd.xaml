@@ -26,14 +26,14 @@
         </Border>
 
         <Grid ColumnDefinitions="*,*" Margin="30, 0">
-            <RadioButton IsChecked="True" Content="Receita" Grid.Column="0" />
-            <RadioButton HorizontalOptions="End" Content="Despesa" Grid.Column="1" />
+            <RadioButton x:Name="RadioIncome" IsChecked="True" Content="Receita" Grid.Column="0" />
+            <RadioButton x:Name="RadioExpense" HorizontalOptions="End" Content="Despesa" Grid.Column="1" />
         </Grid>
 
-        <Entry Placeholder="Nome" Margin="15,0" />
-        <DatePicker Margin="15,0" />
-        <Entry Placeholder="Valor" Margin="15,0" />
+        <Entry x:Name="EntryNome" Placeholder="Nome" Margin="15,0" />
+        <DatePicker x:Name="DatePicker" Margin="15,0" />
+        <Entry x:Name="EntryValor" Placeholder="Valor" Margin="15,0" />
 
-        <Button Text="Salvar" Margin="15,0" HorizontalOptions="Center" />
+        <Button Clicked="OnButtonClicked_Save" Text="Salvar" Margin="15,0" HorizontalOptions="Center" />
     </VerticalStackLayout>
 </ContentPage>
