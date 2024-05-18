@@ -1,5 +1,7 @@
+using AppControleFinanceiro.Messages;
 using AppControleFinanceiro.Models;
 using AppControleFinanceiro.Repositories.Interfaces;
+using CommunityToolkit.Mvvm.Messaging;
 using System.Text;
 
 namespace AppControleFinanceiro.Views;
@@ -29,9 +31,7 @@ public partial class TransactionAdd : ContentPage
         SaveTransactionInDataBase();
 
         Navigation.PopModalAsync();
-
-        int count = _repository.GetAll().Count;
-        App.Current.MainPage.DisplayAlert("Mensagem!", $"Existem {count} registro(s) salvos", "OK");
+        WeakReferenceMessenger.Default.Send<TransactionAddMessage>();
     }
 
     private void SaveTransactionInDataBase()
@@ -64,7 +64,7 @@ public partial class TransactionAdd : ContentPage
             isValid = false;
         }
 
-        if (string.IsNullOrEmpty(EntryValor.Text) && !double.TryParse(EntryValor.Text, out double result))
+        if (!string.IsNullOrEmpty(EntryValor.Text) && !double.TryParse(EntryValor.Text, out double result))
         {
             sb.AppendLine("O campo 'Valor' e invalido. Apenas numeros sao permitidos!");
             isValid = false;
@@ -72,6 +72,7 @@ public partial class TransactionAdd : ContentPage
 
         if (!isValid)
         {
+            LabelError.IsVisible = true;
             LabelError.Text = sb.ToString();
         }
 

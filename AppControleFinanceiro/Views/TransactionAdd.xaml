@@ -5,8 +5,6 @@
              Title="TransactionAdd">
     <VerticalStackLayout Spacing="10">
         <Border Background="Black" Padding="15" Stroke="Transparent" StrokeShape="RoundRectangle 30" Margin="15">
-            <Label TextColor="Red" x:Name="LabelError" IsVisible="False"/>
-
             <Grid Margin="30,0" ColumnDefinitions="*, *">
                 <Label 
                     Text="Novo"
@@ -27,6 +25,7 @@
             </Grid>
         </Border>
 
+        <Label Margin="30,0" TextColor="Red" x:Name="LabelError" IsVisible="False"/>
         <Grid ColumnDefinitions="*,*" Margin="30, 0">
             <RadioButton x:Name="RadioReceita" IsChecked="True" Content="Receita" Grid.Column="0" />
             <RadioButton x:Name="RadioDespesa" HorizontalOptions="End" Content="Despesa" Grid.Column="1" />
