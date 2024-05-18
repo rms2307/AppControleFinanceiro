@@ -1,4 +1,5 @@
 using AppControleFinanceiro.Messages;
+using AppControleFinanceiro.Models;
 using AppControleFinanceiro.Repositories.Interfaces;
 using CommunityToolkit.Mvvm.Messaging;
 
@@ -24,7 +25,21 @@ public partial class TransactionList : ContentPage
 
     private void Reload()
     {
-        CollectionViewTransactions.ItemsSource = _repository.GetAll().OrderByDescending(t => t.Date);
+        IEnumerable<Transaction> transactions = _repository.GetAll().OrderByDescending(t => t.Date);
+        CollectionViewTransactions.ItemsSource = transactions;
+
+        CalculateCardSummaryValuesAndSendScreen(transactions);
+    }
+
+    private void CalculateCardSummaryValuesAndSendScreen(IEnumerable<Transaction> transactions)
+    {
+        double income = transactions.Where(t => t.Type == TransactionType.Income).Sum(t => t.Value);
+        double expense = transactions.Where(t => t.Type == TransactionType.Expense).Sum(t => t.Value);
+        double balance = income - expense;
+
+        LabelIncome.Text = income.ToString("C");
+        LabelExpense.Text = expense.ToString("C");
+        LabelBalance.Text = balance.ToString("C");
     }
 
     private void OnButtonClicked_To_TransactionAdd(object sender, EventArgs args)

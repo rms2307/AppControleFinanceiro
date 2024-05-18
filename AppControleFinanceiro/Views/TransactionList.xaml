@@ -33,7 +33,7 @@
         <Border Margin="10" BackgroundColor="{StaticResource Black}" Stroke="Transparent" Padding="15" StrokeShape="RoundRectangle 30">
             <Grid ColumnDefinitions="*, 80" RowDefinitions="Auto, Auto, 30, Auto, Auto">
                 <Label Text="Saldo" TextColor="#979797" FontSize="18"/>
-                <Label Text="R$ 2760,00" Grid.Row="1" FontSize="36"/>
+                <Label x:Name="LabelBalance" Grid.Row="1" FontSize="36"/>
 
                 <Button 
                     Text="+" 
@@ -48,10 +48,10 @@
                     CornerRadius="27"/>
 
                 <Label Text="Receitas" Grid.Row="3" TextColor="#979797" FontSize="10"/>
-                <Label Text="R$ 3600,00" Grid.Row="4" FontSize="12"/>
+                <Label x:Name="LabelIncome" Grid.Row="4" FontSize="12"/>
 
                 <Label Text="Despesas" Grid.Column="1" Grid.Row="3" TextColor="#979797" FontSize="10"/>
-                <Label Text="R$ 840,00" Grid.Column="1" Grid.Row="4" FontSize="12"/>
+                <Label x:Name="LabelExpense" Grid.Column="1" Grid.Row="4" FontSize="12"/>
             </Grid>
         </Border>
 
