@@ -13,6 +13,9 @@
             <CollectionView.ItemTemplate>
                 <DataTemplate>
                     <Grid Padding="15" ColumnDefinitions="50, *, Auto">
+                        <Grid.GestureRecognizers>
+                            <TapGestureRecognizer CommandParameter="{Binding}" Tapped="TapGestureRecognizerTapped_To_TransactionEdit"/>
+                        </Grid.GestureRecognizers>
                         <Label 
                             Text="S" 
                             VerticalOptions="Center" 
@@ -54,7 +57,5 @@
                 <Label x:Name="LabelExpense" Grid.Column="1" Grid.Row="4" FontSize="12"/>
             </Grid>
         </Border>
-
-        <Button Text="Editar" Clicked="OnButtonClicked_To_TransactionEdit" HorizontalOptions="Center"/>
     </VerticalStackLayout>
 </ContentPage>
