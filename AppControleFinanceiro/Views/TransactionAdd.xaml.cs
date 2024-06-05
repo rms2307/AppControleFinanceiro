@@ -9,6 +9,7 @@ namespace AppControleFinanceiro.Views;
 public partial class TransactionAdd : ContentPage
 {
     private readonly ITransactionRepository _repository;
+
     public TransactionAdd(ITransactionRepository repository)
     {
         _repository = repository;
@@ -16,7 +17,7 @@ public partial class TransactionAdd : ContentPage
         InitializeComponent();
     }
 
-    private void TapGestureRecognizer_Tapped(object sender, TappedEventArgs e)
+    private void TapGestureRecognizerTapped_ToClose(object sender, TappedEventArgs e)
     {
         Navigation.PopModalAsync();
     }
