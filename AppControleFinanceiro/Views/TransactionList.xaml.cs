@@ -95,23 +95,23 @@ public partial class TransactionList : ContentPage
             _borderOriginalBackgroundColor = border.BackgroundColor;
             _labelOriginalText = label.Text;
 
-            await border.RotateYTo(90, 500);
+            await border.RotateYTo(90, 300);
 
             border.BackgroundColor = Colors.Red;
             label.TextColor = Colors.White;
             label.Text = "X";
 
-            await border.RotateYTo(180, 500);
+            await border.RotateYTo(180, 300);
         }
         else
         {
-            await border.RotateYTo(90, 500);
+            await border.RotateYTo(90, 300);
 
             border.BackgroundColor = _borderOriginalBackgroundColor;
             label.TextColor = Colors.Black;
             label.Text = _labelOriginalText;
 
-            await border.RotateYTo(0, 500);
+            await border.RotateYTo(0, 300);
         }
     }
 }

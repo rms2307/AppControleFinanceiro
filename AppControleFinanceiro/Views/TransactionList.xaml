@@ -11,7 +11,7 @@
         <ResourceDictionary>
             <converters:TransactionNameConverter x:Key="TransactionNameConverter"/>
             <converters:TransactionNameColorConverter x:Key="TransactionNameColorConverter"/>
-            
+
             <converters:TransactionValueConverter x:Key="TransactionValueConverter"/>
             <converters:TransactionValueColorConverter x:Key="TransactionValueColorConverter"/>
         </ResourceDictionary>
@@ -65,7 +65,7 @@
                     HorizontalOptions="Center" 
                     Grid.Column="1" 
                     Grid.RowSpan="2" 
-                    FontSize="48"
+                    FontSize="{OnPlatform Default=48, Android=35}"
                     WidthRequest="54"
                     HeightRequest="54"
                     Padding="0"

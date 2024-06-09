@@ -1,3 +1,4 @@
+using AppControleFinanceiro.Libraries.Utils.AndroidUtils;
 using AppControleFinanceiro.Messages;
 using AppControleFinanceiro.Models;
 using AppControleFinanceiro.Repositories.Interfaces;
@@ -33,7 +34,7 @@ public partial class TransactionEdit : ContentPage
 
     private void TapGestureRecognizerTapped_ToClose(object sender, TappedEventArgs e)
     {
-        Navigation.PopModalAsync();
+        CloseModal();
     }
 
     private void OnButtonClicked_Save(object sender, EventArgs e)
@@ -45,7 +46,7 @@ public partial class TransactionEdit : ContentPage
 
         SaveTransactionInDataBase();
 
-        Navigation.PopModalAsync();
+        CloseModal();
         WeakReferenceMessenger.Default.Send<TransactionAddMessage>();
     }
 
@@ -93,5 +94,11 @@ public partial class TransactionEdit : ContentPage
         }
 
         return isValid;
+    }
+
+    private void CloseModal()
+    {
+        KeyboardUtils.HideKeyboardAndroid();
+        Navigation.PopModalAsync();
     }
 }
